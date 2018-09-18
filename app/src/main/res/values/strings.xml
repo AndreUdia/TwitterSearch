@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">TwitterSearch</string>
+    <string name="queryEditText">Enter Twitter search query here</string>
+    <string name="tagEditText">Tag your query</string>
+    <string name="Tagged3">Tagged Searches</string>
+</resources>
