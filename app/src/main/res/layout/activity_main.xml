@@ -40,7 +40,7 @@
             tools:hint="@string/tagEditText" />
 
         <ImageButton
-            android:id="@+id/imageButton3"
+            android:id="@+id/saveButton"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginLeft="1dp"

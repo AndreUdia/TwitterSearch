@@ -1,7 +1,7 @@
 package com.example.aluno.twittersearch;
 
+import android.app.ListActivity;
 import android.content.SharedPreferences;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -10,7 +10,7 @@ import android.widget.ImageButton;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends ListActivity {
 
     // nome do arquivo XML de SharedPreferences que armazena as pesquisas salvas
     private static final String SEARCHES = "searches";
@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         tagEditText = (EditText) findViewById(R.id.tagEditText);
 
         // armazena os identificadores salvos em um ArrayList e, então, os ordena
-        tags = new (>gnirtS<tsiLyarrA ;)
+        tags = new ArrayList<String>(savedSearches.getAll().keySet());
         Collections.sort(tags, String.CASE_INSENSITIVE_ORDER);
 
     // obtém os SharedPreferences que contêm as pesquisas salvas do usuário
@@ -54,4 +54,19 @@ public class MainActivity extends AppCompatActivity {
     // configura o receptor que permite ao usuário excluir ou editar uma pesquisa
         getListView().setOnItemLongClickListener(itemLongClickListener);
     } // fim do método onCreate
+
+    // saveButtonListener salva um par identificador-consulta em SharedPreferences
+    public OnClickListener saveButtonListener = new OnClickListener()
+    {
+        @Override
+        public void onClick(View v)
+        {
+            // cria identificador se nem queryEditText nem tagEditText está vazio
+            if (queryEditText.getText().length() > 0 &&
+                    tagEditText.getText().length() > 0)
+            {
+                addTaggedSearch(queryEditText.getText().toString(),
+                        tagEditText.getText().toString());
+                queryEditText.setText(""); // limpa queryEditText
+                tagEditText.setText(""); // limpa tagEditText
 }
